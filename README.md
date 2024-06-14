@@ -80,8 +80,8 @@ py op_get_long_summaries.py [-o output_directory] [-l last_chapter]
 ##### Examples
 
 ```bash
-python op_get_long_summaries.py
-python op_get_long_summaries.py -o /path/to/output -l 1050
+py op_get_long_summaries.py
+py op_get_long_summaries.py -o /path/to/output -l 1050
 ```
 
 ### op_get_short_summaries.py
@@ -106,14 +106,14 @@ The `embed_documents.py` script generates a vector database from extracted docum
 #### Usage
 
 ```bash
-python embed_documents.py [-d path/to/document] [-p path/to/database]
+py embed_documents.py [-d path/to/document] [-p path/to/database]
 ```
 
 ##### Examples
 
 ```bash
-python embed_documents.py
-python embed_documents.py -d /path/to/my/document.txt -p /path/to/my/database
+py embed_documents.py
+py embed_documents.py -d /path/to/my/document.txt -p /path/to/my/database
 ```
 
 ### inference.py
@@ -138,16 +138,16 @@ The `inference.py` script enables an interactive command-line interface for user
 #### Usage
 
 ```bash
-python inference.py [-m path/to/model] [-v path/to/vector_db] [-c number_of_chunks] search_type [--fetch_k number_of_passages] [--lambda_mult lambda_multiplier] [--score_threshold score_threshold]
+py inference.py [-m path/to/model] [-v path/to/vector_db] [-c number_of_chunks] search_type [--fetch_k number_of_passages] [--lambda_mult lambda_multiplier] [--score_threshold score_threshold]
 ```
 
 ##### Examples
 
 ```bash
-python inference.py -c 5
-python inference.py -m /path/to/my/model.gguf -v /path/to/my/vector_db similarity
-python inference.py mmr --fetch_k 10 --lambda_mult 0.5
-python inference.py -c 5 similarity_score_threshold --score_threshold 0.75
+py inference.py -c 5
+py inference.py -m /path/to/my/model.gguf -v /path/to/my/vector_db similarity
+py inference.py mmr --fetch_k 10 --lambda_mult 0.5
+py inference.py -c 5 similarity_score_threshold --score_threshold 0.75
 ```
 
 ### test_OP_RAG.py
@@ -175,16 +175,16 @@ The `test_OP_RAG.py` script takes a dataset with questions and answers and evalu
 #### Usage
 
 ```bash
-python test_OP_RAG.py [-c number_of_chunks] [-n model_name] [-r results_directory] [-m path_to_model] [-t path_to_test_dataset] [-v path_to_vector_db] search_type [--fetch_k number_of_passages] [--lambda_mult lambda_multiplier] [--score_threshold score_threshold]
+py test_OP_RAG.py [-c number_of_chunks] [-n model_name] [-r results_directory] [-m path_to_model] [-t path_to_test_dataset] [-v path_to_vector_db] search_type [--fetch_k number_of_passages] [--lambda_mult lambda_multiplier] [--score_threshold score_threshold]
 ```
 
 ##### Examples
 
 ```bash
-python test_OP_RAG.py similarity
-python test_OP_RAG.py -c 5 -n "other-model" -r /path/to/results -m /path/to/model.gguf -t /path/to/dataset.csv -v /path/to/vector_db
-python test_OP_RAG.py mmr --fetch_k 5 --lambda_mult 0.5
-python test_OP_RAG.py -c 5 similarity_score_threshold --score_threshold 0.75
+py test_OP_RAG.py similarity
+py test_OP_RAG.py -c 5 -n "other-model" -r /path/to/results -m /path/to/model.gguf -t /path/to/dataset.csv -v /path/to/vector_db
+py test_OP_RAG.py mmr --fetch_k 5 --lambda_mult 0.5
+py test_OP_RAG.py -c 5 similarity_score_threshold --score_threshold 0.75
 ```
 
 ### process_tests.py
