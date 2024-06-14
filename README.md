@@ -59,7 +59,7 @@ Note that the examples of use for every script will be run using the `py` comman
 
 The setup.py script prepares the project structure to directly run the scripts `inference.py`, `test_OP_RAG.py`, `process_tests.py` and `analytics.py`, assuming the necessary dependencies have been previously installed using the `requirements.txt` file. Its functionality includes:
 
-1. Creating the "tests", "models", and "data" directories.
+1. Creating the "tests", "models", "data" and "plots" directories.
 2. Extracting sample data from the "examples" folder into their respective directories for use by the scripts.
 3. If the necessary data is not found in the "examples" folder, it will execute the `op_get_long_summaries.py` and `embed_documents.py` scripts to generate the vector database.
 4. Installing the LLaMa 2 7b-chat language model quantized to 4 bits in the "models" folder.

@@ -79,6 +79,7 @@ os.chdir(script_dir)
 create_directory('tests')
 create_directory('models')
 create_directory('data')
+create_directory('plots')
 
 # Paths for ZIP file and extraction
 # Comprobar si existe VectorDBLong
