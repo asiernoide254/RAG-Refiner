@@ -31,6 +31,8 @@ pip install -r requirements.txt
 
 It is recommended to use a Python virtual environmente (or "venv") when installing these packages, for better management.
 
+If you install the package `llama-cpp-python` included in `requirements.txt`, you will only be able to make inference using your CPU. If you want to make inference using your graphics card you can install a version of `llama-cpp-python` with `BLAS` compatibility enabled (refer to this installation guide: <https://python.langchain.com/v0.1/docs/integrations/llms/llamacpp/#installation-with-openblas--cublas--clblast>).
+
 After this is done, simply run the script `setup.py` (you can do this by using the command `py setup.py` on Windows or `python setup.py` on Linux or Mac).
 
 This script will:
