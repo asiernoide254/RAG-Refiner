@@ -12,8 +12,6 @@ RAG-Refiner provides scripts for:
 
 ## Getting Started
 
-### Pre-requisites
-
 A version of [Git](https://www.git-scm.com/downloads) should be installed on the system to clone the repository, and you also need to have a version of [Python](https://www.python.org/downloads/) installed to be able to run the scripts.
 
 Start by cloning this repository using `git` and accessing it:
