@@ -27,7 +27,13 @@ Then, try to install any dependencies the project needs to run the scripts using
 pip install -r requirements.txt
 ```
 
-It is recommended to use a Python virtual environmente (or "venv") when installing these packages, for better management.
+It is recommended to use a Python virtual environmente (or "venv") when installing these packages, for better management. You can create a Python virtual environment using the following command:
+
+```bash
+py -m venv path/to/new/venv
+```
+
+If you are using a *Unix* system, use the `python` command instead of the `py` command.
 
 If you install the package `llama-cpp-python` included in `requirements.txt`, you will only be able to make inference using your CPU. If you want to make inference using your graphics card you can install a version of `llama-cpp-python` with `BLAS` compatibility enabled (refer to this installation guide: <https://python.langchain.com/v0.1/docs/integrations/llms/llamacpp/#installation-with-openblas--cublas--clblast>).
 
