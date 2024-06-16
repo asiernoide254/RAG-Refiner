@@ -130,7 +130,7 @@ The `inference.py` script enables an interactive command-line interface for user
 
 - `-m` or `--model`: Path to the model file (must be a GGUF file). Optional, defaults to ../models/llama-2-7b-chat/ggml-model-q4_0.gguf.
 - `-v` or `--vector_db_path`: Directory containing the vector database from which to retrieve document passages. Defaults to "../data/VectorDBLong".
-- `-c` or `--chunks`: Number of passages to retrieve from the vector database to add to the context.
+- `-c` or `--chunks`: Number of passages to retrieve from the vector database to add to the context. Defaults to 5.
 - `search_type`: Subparser to indicate the type of search to perform. Options:
   - `mmr` (Maximal Marginal Relevance)
     - `--fetch_k`: Number of passages to retrieve for MMR.
