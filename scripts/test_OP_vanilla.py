@@ -72,21 +72,14 @@ def test_model(model_path, results_path, model_name, test_dataset_path):
     )
 
     prompt_template = PromptTemplate.from_template(
-    '''Answer the user's question according to the One Piece manga series. If you don't know the answer just say it, don't try to make up an answer. Answer as concisely and briefly as possible. Don't be verbose.
-    
-    Question: {question}
-    Helpful answer: 
-    '''
+        '''Answer the user's question according to the One Piece manga series. If you don't know the answer just say it, don't try to make up an answer. Answer as concisely and briefly as possible. Don't be verbose.
+        
+        Question: {question}
+        Helpful answer: 
+        '''
     )
 
-    # Create the QA chain
-    '''
-    qa_chain = RetrievalQA.from_chain_type(
-        llm,
-        chain_type_kwargs={"verbose": True, "prompt": prompt_template}
-    )
-    '''
-
+    # Create chain
     llm_chain = prompt_template | llm
 
     # Metrics evaluation
