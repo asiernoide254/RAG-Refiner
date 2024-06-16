@@ -25,6 +25,9 @@ os.chdir(script_dir)
 # Call the script for search_type "similarity" with different chunk quantities
 print("Starting test with similarity search type.\n")
 print("------------------------------------------\n")
+zero_chunks_command = [sys.executable, "test_OP_vanilla.py"]
+print(f"search_type: similarity\nchunks: 0\n\n")
+subprocess.run(zero_chunks_command)
 for i in [3, 5, 7, 9]:
     print(f"search_type: similarity\nchunks: {i}\n\n")
     call_test_script("similarity", {"chunks": i})

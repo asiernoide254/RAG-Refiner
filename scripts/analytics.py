@@ -52,13 +52,13 @@ plots_dir = os.path.join("..", "plots")
 
 # SIMILARITY TESTS
 similarity_tests = []
-for i in [3, 5, 7, 9]:
+for i in [0, 3, 5, 7, 9]:
     op_test_dataset = pd.read_csv(os.path.join(tests_dir, f"OPTestResults_llama-2-7b-chat_similarity_c{i}.csv"), delimiter=",", encoding="ISO-8859-1")
     similarity_tests.append(op_test_dataset)
 
 rouge_data = [df['Rouge Scores'].values for df in similarity_tests]
 time_data = [df['Time Elapsed'].values for df in similarity_tests]
-labels = [f'{i} chunks' for i in [3, 5, 7, 9]]
+labels = [f'{i} chunks' for i in [0, 3, 5, 7, 9]]
 
 create_combined_graph(
     y_values_rouge=rouge_data,
@@ -67,7 +67,7 @@ create_combined_graph(
     title="Similarity search",
     save_dir=os.path.join(plots_dir, "similarity.png")
 )
-
+'''
 
 # MMR FETCH_K TESTS
 mmr_fetch_k_tests = []
@@ -124,3 +124,4 @@ create_combined_graph(
     title="Similarity Score Threshold search",
     save_dir=os.path.join(plots_dir, "similarity_score_threshold.png")
 )
+'''

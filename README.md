@@ -191,6 +191,32 @@ py test_OP_RAG.py mmr --fetch_k 5 --lambda_mult 0.5
 py test_OP_RAG.py -c 5 similarity_score_threshold --score_threshold 0.75
 ```
 
+### test_OP_vanilla.py
+
+#### Description
+
+The `test_OP_vanilla.py` script takes a dataset with questions and answers and evaluates the model's responses to the questions against the reference answers without retrieving any chunks from the RAG arquitecture. It also calculates the time taken for each question. Then, it creates a new dataset with the score and time taken assigned to each question.
+
+#### Arguments
+
+- `-n` or `--model_name`: Name of the language model to use. Defaults to "llama-2-7b-chat".
+- `-r` or `--results_directory`: Directory to save the test results. Defaults to "../tests/".
+- `-m` or `--model_path`: Path to the model file (must be a GGUF file). Defaults to "../models/llama-2-7b-chat/ggml-model-q4_0.gguf".
+- `-t` or `--test_dataset_path`: Path to the CSV file containing the questions and answers for the tests. Defaults to "../data/OnePieceQuestionDataset.csv".
+
+#### Usage
+
+```bash
+py test_OP_vanilla.py [-n model_name] [-r results_directory] [-m path_to_model] [-t path_to_test_dataset]
+```
+
+##### Examples
+
+```bash
+py test_OP_vanilla.py
+py test_OP_vanilla.py -n "other-model" -r /path/to/results -m /path/to/model.gguf -t /path/to/dataset.csv
+```
+
 ### process_tests.py
 
 #### Description
