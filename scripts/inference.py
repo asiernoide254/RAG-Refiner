@@ -87,7 +87,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Initialize model and perform inference interactively")
     parser.add_argument("-m", "--model", default=os.path.join("..", "models", "llama-2-7b-chat", "ggml-model-q4_0.gguf"), help="Path to the model file")
     parser.add_argument("-v", "--vector_db_path", default=os.path.join("..", "data", "VectorDBLong"), help="Directory where the vector database is located")
-    parser.add_argument("-c", "--chunks", type=int, default=3, help="Number of chunks to retrieve from the database")
+    parser.add_argument("-c", "--chunks", type=int, default=5, help="Number of chunks to retrieve from the database")
     
     # Add conditional arguments
     # Create subparsers for mmr and similarity_score_threshold search types
