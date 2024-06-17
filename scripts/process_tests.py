@@ -32,19 +32,15 @@ for i in [3, 5, 7, 9]:
     print(f"search_type: similarity\nchunks: {i}\n\n")
     call_test_script("similarity", {"chunks": i})
 
-# Call the script for search_type "mmr" with different fetch_k values
-print("Starting test with mmr search type and specific fetch_k values\n")
-print("------------------------------------------\n")
-for i in [3, 5, 7, 9, 12]:
-    print(f"search_type: mmr\nchunks: 5\nfetch_k: {i}\n\n")
-    call_test_script("mmr", {"chunks": 5, "fetch_k": i})
 
-# Call the script for search_type "mmr" with different lambda_mult values
-print("Starting test with mmr search type and specific lambda_mult values\n")
-print("------------------------------------------\n")
-for i in [0.01, 0.1, 0.25, 0.5, 0.7]:
-    print(f"search_type: mmr\nchunks: 5\nfetch_k: 5\nlambda_mult: {i}\n\n")
-    call_test_script("mmr", {"chunks": 5, "fetch_k": 5, "lambda_mult": i})
+# Call the script for search_type "mmr" with different fetch_k and lambda_mult values
+for i in [0.2, 0.4, 0.6, 0.8]: # lambda_mult
+    print(f"Starting test with MMR search type and specific fetch_k values (lambda_mult = {i})\n")
+    print("------------------------------------------\n")
+    for j in [5, 10, 15, 20, 25]: # fetch_k
+        print(f"search_type: mmr\nchunks: 5\nlambda_mult: {i}\nfetch_k: {j}\n\n")
+        call_test_script("mmr", {"chunks": 5, "fetch_k": j, "lambda_mult": i})
+
 
 # Call the script for search_type "similarity_score_threshold" with different score_threshold values
 print("Starting test with similarity_score_threshold search type and specific score_threshold values\n")

@@ -67,44 +67,26 @@ create_combined_graph(
     title="Similarity search",
     save_dir=os.path.join(plots_dir, "similarity.png")
 )
-'''
-
-# MMR FETCH_K TESTS
-mmr_fetch_k_tests = []
-for i in [3, 5, 7, 9, 12]:
-    op_test_dataset = pd.read_csv(os.path.join(tests_dir, f"OPTestResults_llama-2-7b-chat_mmr_c5_fetch_k{i}.csv"), delimiter=",", encoding="ISO-8859-1")
-    mmr_fetch_k_tests.append(op_test_dataset)
-
-rouge_data = [df['Rouge Scores'].values for df in mmr_fetch_k_tests]
-time_data = [df['Time Elapsed'].values for df in mmr_fetch_k_tests]
-labels = [f'fetch_k = {i}' for i in [3, 5, 7, 9, 12]]
-
-create_combined_graph(
-    y_values_rouge=rouge_data,
-    y_values_time=time_data,
-    x_values=labels,
-    title="MMR search by fetch_k",
-    save_dir=os.path.join(plots_dir, "mmr_fetch_k.png")
-)
 
 
-# MMR LAMBDA_MULT TESTS
-mmr_lambda_mult_tests = []
-for i in [0.01, 0.1, 0.25, 0.5, 0.7]:
-    op_test_dataset = pd.read_csv(os.path.join(tests_dir, f"OPTestResults_llama-2-7b-chat_mmr_c5_fetch_k5_lambda_mult{i}.csv"), delimiter=",", encoding="ISO-8859-1")
-    mmr_lambda_mult_tests.append(op_test_dataset)
+# MMR TESTS
+for i in [0.2, 0.4, 0.6, 0.8]:
+    mmr_fetch_k_tests = []
+    for j in [5, 10, 15, 20, 25]:
+        op_test_dataset = pd.read_csv(os.path.join(tests_dir, f"OPTestResults_llama-2-7b-chat_mmr_c5_fetch_k{j}_lambda_mult{i}.csv"), delimiter=",", encoding="ISO-8859-1")
+        mmr_fetch_k_tests.append(op_test_dataset)
 
-rouge_data = [df['Rouge Scores'].values for df in mmr_lambda_mult_tests]
-time_data = [df['Time Elapsed'].values for df in mmr_lambda_mult_tests]
-labels = [f'mult = {i}' for i in [0.01, 0.1, 0.25, 0.5, 0.7]]
+    rouge_data = [df['Rouge Scores'].values for df in mmr_fetch_k_tests]
+    time_data = [df['Time Elapsed'].values for df in mmr_fetch_k_tests]
+    labels = [f'fetch_k = {j}' for j in [5, 10, 15, 20, 25]]
 
-create_combined_graph(
-    y_values_rouge=rouge_data,
-    y_values_time=time_data,
-    x_values=labels,
-    title="MMR search by lambda_mult (with fetch_k = 5)",
-    save_dir=os.path.join(plots_dir, "mmr_lambda_mult.png")
-)
+    create_combined_graph(
+        y_values_rouge=rouge_data,
+        y_values_time=time_data,
+        x_values=labels,
+        title=f"MMR search by fetch_k (lambda_mult = {i})",
+        save_dir=os.path.join(plots_dir, f"mmr_fetch_k_lambda_mult{i}.png")
+    )
 
 
 # SIMILARITY SCORE THRESHOLD TESTS
@@ -124,4 +106,3 @@ create_combined_graph(
     title="Similarity Score Threshold search",
     save_dir=os.path.join(plots_dir, "similarity_score_threshold.png")
 )
-'''
